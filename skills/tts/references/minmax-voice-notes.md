@@ -1,17 +1,27 @@
-# MiniMax Voice Notes
+﻿# MiniMaxi Voice Notes (Aligned)
 
-- TTS endpoint (HTTP): `POST https://api.minimax.io/v1/t2a_v2`
-- Alternative region endpoint: `POST https://api-uw.minimax.io/v1/t2a_v2`
-- Auth header: `Authorization: Bearer <MINMAX_API_KEY>`
+Official docs:
 
-Voice list:
+- Voice clone guide:
+  - https://platform.minimaxi.com/docs/guides/speech-voice-clone
+- Sync TTS HTTP reference:
+  - https://platform.minimaxi.com/docs/api-reference/speech-t2a-http
+- System voice IDs FAQ:
+  - https://platform.minimaxi.com/docs/faq/system-voice-id
 
-- Check MiniMax official voice list docs:
-  - https://www.minimax.io/platform/document/T2A%20V2?key=67ac78f2096ecadac29f4ca3
-  - https://www.minimax.io/platform/document/Voice%20cloning?key=677f1474f8ecca8b19710d20
+Auth and endpoint:
 
-Notes:
+- Header: `Authorization: Bearer <MINIMAX_API_KEY>`
+- Primary endpoint: `POST https://api.minimaxi.com/v1/t2a_v2`
+- Backup endpoint: `POST https://api-bj.minimaxi.com/v1/t2a_v2`
 
-- Some voice IDs are system preset voices.
-- Some voice IDs are account-specific (for cloned/custom voices).
-- Keep `voice_id` configurable at runtime; do not hardcode a single voice.
+Voice clone IDs:
+
+- `voice_id`: custom ID for your cloned voice.
+- `file_id`: returned after uploading source audio, used in clone request.
+- Clone workflow: upload audio -> create clone -> use cloned `voice_id` in TTS.
+
+Practical note:
+
+- Keep `voice_id` configurable in runtime arguments.
+- Do not hardcode one voice for all dubbing tasks.
